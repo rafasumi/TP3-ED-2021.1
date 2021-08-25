@@ -19,8 +19,10 @@ void BinaryTree::recursiveInsert(TreeNode* &node, std::string key, std::string d
   } else {
     if (key < node->key) 
       recursiveInsert(node->left, key, data);
-    else
+    else if (key > node->key)
       recursiveInsert(node->right, key, data);
+    else
+      node->data.push(data);
   }
 }
 
@@ -66,15 +68,6 @@ void BinaryTree::predecessor(TreeNode* node, TreeNode* &aux) {
   delete node;
 }
 
-void BinaryTree::pushData(std::string key, std::string data) {
-  TreeNode* node = search(key);
-
-  if (node == nullptr)
-    return;
-  
-  node->data.push(data);
-}
-
 void BinaryTree::clear() {
   recursiveDelete(root);
   root = nullptr;
@@ -86,22 +79,6 @@ void BinaryTree::recursiveDelete(TreeNode* node) {
     recursiveDelete(node->right);
     delete node;
   }
-}
-
-TreeNode* BinaryTree::search(std::string key) {
-  return recursiveSearch(root, key);
-}
-
-TreeNode* BinaryTree::recursiveSearch(TreeNode* node, std::string key) {
-  if (node == nullptr)
-    return node;
-  
-  if (key < node->key)
-    return recursiveSearch(node->left, key);
-  else if (key > node->key)
-    return recursiveSearch(node->right, key);
-  else
-    return node;
 }
 
 void BinaryTree::print() {

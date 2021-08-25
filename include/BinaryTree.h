@@ -10,7 +10,6 @@ class BinaryTree {
     ~BinaryTree();
 
     void insert(std::string key, std::string data);
-    void pushData(std::string key, std::string data);
   
     void remove(std::string key);
 
@@ -21,9 +20,6 @@ class BinaryTree {
     void recursiveInsert(TreeNode* &node, std::string key, std::string data);
     void recursiveRemove(TreeNode* &node, std::string key);
     void recursiveDelete(TreeNode* node);
-
-    TreeNode* search(std::string key);
-    TreeNode* recursiveSearch(TreeNode* node, std::string key);
 
     void predecessor(TreeNode* node, TreeNode* &aux);
 

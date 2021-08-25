@@ -14,7 +14,6 @@ class LinkedList {
     int calculateSum();
 
   private:
-    int size;
     LinkedNode* first;
     LinkedNode* last;
 

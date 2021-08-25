@@ -2,7 +2,6 @@
 #include <iostream>
 
 LinkedList::LinkedList() {
-  size = 0;
   first = new LinkedNode();
   last = first;
 }
@@ -17,8 +16,6 @@ void LinkedList::push(std::string data) {
 
   last->next = newNode;
   last = newNode;
-
-  size++;
 }
 
 void LinkedList::clear() {
@@ -29,7 +26,6 @@ void LinkedList::clear() {
     aux = first->next;
   }
 
-  size = 0;
   last = first;
 }
 
