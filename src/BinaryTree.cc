@@ -2,6 +2,7 @@
 #include <iostream>
 
 BinaryTree::BinaryTree() {
+  size = 0;
   root = nullptr;
 }
 
@@ -15,6 +16,7 @@ void BinaryTree::insert(std::string key, std::string data) {
 
 void BinaryTree::recursiveInsert(TreeNode* &node, std::string key, std::string data) {
   if (node == nullptr) {
+    size++;
     node = new TreeNode(key, data);
   } else {
     if (key < node->key) 
@@ -40,9 +42,10 @@ void BinaryTree::recursiveRemove(TreeNode* &node, std::string key) {
   else if (key > node->key) 
     recursiveRemove(node->right, key);
   else {
-    TreeNode* aux;
     std::cout << node->key << " " << node->data.calculateSum();
-    
+    size--;
+
+    TreeNode* aux;
     if (node->right == nullptr) {
       aux = node;
       node = node->left;
@@ -70,6 +73,7 @@ void BinaryTree::predecessor(TreeNode* node, TreeNode* &aux) {
 
 void BinaryTree::clear() {
   recursiveDelete(root);
+  size = 0;
   root = nullptr;
 }
 
@@ -82,14 +86,17 @@ void BinaryTree::recursiveDelete(TreeNode* node) {
 }
 
 void BinaryTree::print() {
-  inOrderPrint(root);
+  int nodesPrinted = 0;
+  inOrderPrint(root, &nodesPrinted);
   std::cout << std::endl;
 }
 
-void BinaryTree::inOrderPrint(TreeNode* node) {
+void BinaryTree::inOrderPrint(TreeNode* node, int* nodesPrinted) {
   if (node != nullptr) {
-    inOrderPrint(node->left);
-    std::cout << node->key << " ";
-    inOrderPrint(node->right);
+    inOrderPrint(node->left, nodesPrinted);
+    std::cout << node->key;
+    (*nodesPrinted)++;
+    if (*nodesPrinted < size) std::cout << " ";
+    inOrderPrint(node->right, nodesPrinted);
   }
 }

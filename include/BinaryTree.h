@@ -23,9 +23,10 @@ class BinaryTree {
 
     void predecessor(TreeNode* node, TreeNode* &aux);
 
-    void inOrderPrint(TreeNode* node);
+    void inOrderPrint(TreeNode* node, int* nodesPrinted);
     
     TreeNode* root;
+    int size;
 };
 
 #endif

@@ -42,14 +42,14 @@ int LinkedList::calculateSum() {
 
 int LinkedList::binaryToDecimal(std::string binary) {
   int size = binary.size();
-  int base = 1;
+  int multiplier = 1;
   int decimal = 0;
   int intValue; 
   
   for (int i = size - 1; i >= 0; i--) {
     intValue = binary[i] - '0';
-    decimal += intValue * base;
-    base *= 2;
+    decimal += intValue * multiplier;
+    multiplier *= 2;
   }
 
   return decimal;
