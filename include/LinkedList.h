@@ -13,6 +13,7 @@ class LinkedList {
 
     int calculateSum();
 
+    LinkedList& operator = (const LinkedList& node);
   private:
     LinkedNode* first;
     LinkedNode* last;

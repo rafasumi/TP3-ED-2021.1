@@ -45,7 +45,7 @@ int LinkedList::binaryToDecimal(std::string binary) {
   int multiplier = 1;
   int decimal = 0;
   int intValue; 
-  
+
   for (int i = size - 1; i >= 0; i--) {
     intValue = binary[i] - '0';
     decimal += intValue * multiplier;
@@ -53,4 +53,16 @@ int LinkedList::binaryToDecimal(std::string binary) {
   }
 
   return decimal;
+}
+
+LinkedList& LinkedList::operator = (const LinkedList& node) {
+  this->clear();
+  
+  LinkedNode* aux = node.first->next;
+  while (aux != nullptr) {
+    this->push(aux->key);
+    aux = aux->next;
+  }
+
+  return *this;
 }

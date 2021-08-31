@@ -66,6 +66,7 @@ void BinaryTree::predecessor(TreeNode* node, TreeNode* &aux) {
   }
 
   node->key = aux->key;
+  node->data = aux->data;
   node = aux;
   aux = aux->left;
   delete node;
