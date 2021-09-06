@@ -30,7 +30,6 @@ void BinaryTree::recursiveInsert(TreeNode* &node, std::string key, std::string d
 
 void BinaryTree::remove(std::string key) {
   recursiveRemove(root, key);
-  std::cout << std::endl;
 }
 
 void BinaryTree::recursiveRemove(TreeNode* &node, std::string key) {
@@ -42,7 +41,7 @@ void BinaryTree::recursiveRemove(TreeNode* &node, std::string key) {
   else if (key > node->key) 
     recursiveRemove(node->right, key);
   else {
-    std::cout << node->key << " " << node->data.calculateSum();
+    std::cout << node->key << " " << node->data.calculateSum() << std::endl;;
     size--;
 
     TreeNode* aux;

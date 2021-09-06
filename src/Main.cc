@@ -3,6 +3,8 @@
 #include <cstring>
 #include "BinaryTree.h"
 
+// Função main do programa. Faz a leitura do arquivo, fazendo o número de inserções especificados na primeira linha do arquivo.
+// Depois disso, realiza as operações de "busca e envio" (remoção) especificadas nas linhas subsequentes
 int main(int argc, char const *argv[]) {
   std::ifstream inputFile(argv[1]);
   std::string insertionsQty;
@@ -13,7 +15,6 @@ int main(int argc, char const *argv[]) {
   BinaryTree tree;
 
   std::string line;
-  std::string token;
   std::string key, data;
   const char* delim = " ";
   for (int i = 0; i < n; i++) {

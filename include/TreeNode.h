@@ -7,11 +7,13 @@
 
 class TreeNode : private Node {
   public:
+    // Construtor padrão de TreeNode. Chama o construtor da superclasse
     TreeNode(): Node() {
       left = nullptr;
       right = nullptr;
     }
 
+    // Construtor de TreeNode que seta os valores de key e data. Chama o construtor da superclasse
     TreeNode(std::string key, std::string data): Node(key) {
       left = nullptr;
       right = nullptr;
